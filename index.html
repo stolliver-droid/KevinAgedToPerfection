@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kevin — Aged to Perfection · Louisville 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bourbon:#8B4513; --bourbon-dark:#5C2E0D; --bourbon-mid:#A0521A; --bourbon-light:#C47A3A;
+  --cream:#FBF5ED; --cream-dark:#F0E4D0; --cream-deeper:#E8D5BC;
+  --gold:#C49A22; --gold-light:#F5E6C0;
+  --dark:#1E0A04; --text:#3D1C0A; --muted:#8A6550;
+  --white:#FFFAF4; --green:#2A6E2A; --green-bg:#EEF5EE;
+  --shadow:rgba(139,69,19,0.13);
+  --radius:14px; --radius-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+a{color:var(--bourbon);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#2A0D04 0%,#5C2E0D 50%,#8B4513 100%);color:#FFF8F0;padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#F5C990;margin-bottom:12px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,10vw,72px);font-weight:700;line-height:1;color:#FFF8F0;margin-bottom:6px}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,4vw,26px);font-style:italic;color:#F5C990;margin-bottom:6px}
+.hero-meta{font-size:13px;color:#D4B896;letter-spacing:0.05em;margin-bottom:36px}
+
+/* COUNTDOWN */
+.countdown{display:flex;justify-content:center;gap:12px;margin-bottom:36px;flex-wrap:wrap}
+.cd-unit{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-sm);padding:12px 16px;min-width:70px;text-align:center;backdrop-filter:blur(4px)}
+.cd-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:#FFF8F0;line-height:1;display:block}
+.cd-label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#D4B896;display:block;margin-top:4px}
+
+/* MAP LINKS */
+.map-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.map-btn{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:30px;padding:9px 18px;font-size:13px;font-weight:600;color:#FFF8F0;transition:all 0.2s;cursor:pointer;text-decoration:none}
+.map-btn:hover{background:rgba(255,255,255,0.18);text-decoration:none}
+.map-btn span{font-size:15px}
+
+/* STICKY NAV */
+.day-nav{position:sticky;top:0;z-index:100;background:rgba(251,245,237,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--cream-deeper);padding:0 16px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.day-nav::-webkit-scrollbar{display:none}
+.day-nav-inner{display:inline-flex;gap:4px;padding:10px 0}
+.day-tab{display:inline-block;padding:7px 16px;border-radius:30px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;text-decoration:none;white-space:nowrap}
+.day-tab:hover{background:var(--cream-dark);color:var(--text);text-decoration:none}
+.day-tab.active{background:var(--bourbon);color:#FFF8F0}
+
+/* SECTIONS */
+.section{padding:40px 20px;max-width:680px;margin:0 auto}
+.section-header{margin-bottom:28px}
+.day-label{display:inline-block;background:var(--bourbon);color:#FFF8F0;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.day-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,6vw,38px);font-weight:700;color:var(--dark);line-height:1.1}
+.day-title .bday-tag{font-style:italic;color:var(--bourbon-light);font-size:0.75em}
+.section-divider{height:1px;background:var(--cream-deeper);margin:40px 0}
+
+/* CARDS */
+.card{background:var(--white);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:0 2px 12px var(--shadow)}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.card-title{font-weight:700;font-size:17px;color:var(--dark)}
+.card-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.card-body{font-size:14px;color:var(--text);margin-top:8px;line-height:1.6}
+
+/* BADGE TYPES */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.badge-confirmed{background:var(--green-bg);color:var(--green);border:1px solid #B8D9B8}
+.badge-cookin{background:#FFF3E0;color:#8B5E1A;border:1px solid #E8C87A}
+.badge-time{background:var(--cream-dark);color:var(--bourbon);border:1px solid var(--cream-deeper);font-family:'DM Sans',sans-serif}
+
+/* CONFIRMED MEAL */
+.meal-confirmed{border:2px solid #B8D9B8;background:linear-gradient(135deg,#F5FBF5,#FFFFFF)}
+.meal-confirmed .card-title{color:var(--green)}
+.meal-cookin{border:2px solid #E8C87A;background:linear-gradient(135deg,#FFFBF0,#FFFFFF)}
+.kevin-note{background:var(--gold-light);border-radius:var(--radius-sm);padding:10px 14px;margin-top:10px;font-size:13px;color:#5C3D0A;font-style:italic}
+.kevin-note strong{font-style:normal;font-weight:700}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:var(--cream-deeper)}
+.tl-item{position:relative;margin-bottom:18px}
+.tl-item::before{content:'';position:absolute;left:-23px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--bourbon);border:2px solid var(--cream)}
+.tl-time{font-size:11px;font-weight:700;color:var(--bourbon);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:2px}
+.tl-label{font-weight:600;font-size:15px;color:var(--dark)}
+.tl-detail{font-size:13px;color:var(--muted);margin-top:2px}
+
+/* ACTIVITIES GRID */
+.activities-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.activity-card{border-radius:var(--radius-sm);padding:14px 16px;border:2px solid transparent;transition:all 0.15s}
+.activity-card.starred{background:#FFF8F0;border-color:var(--bourbon-light);box-shadow:0 2px 10px rgba(139,69,19,0.1)}
+.activity-card.other{background:var(--white);border-color:var(--cream-deeper);opacity:0.75}
+.activity-name{font-weight:700;font-size:15px;color:var(--dark);display:flex;align-items:center;gap:8px}
+.activity-name .star{color:var(--gold);font-size:14px}
+.activity-tag{font-size:12px;color:var(--bourbon);font-weight:600;margin:3px 0}
+.activity-note{font-size:12px;color:var(--muted);line-height:1.5}
+.group-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--bourbon);margin:20px 0 8px;padding-left:2px}
+
+/* DISTILLERY CARDS */
+.distillery-card{background:var(--white);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;box-shadow:0 2px 12px var(--shadow)}
+.distillery-header{background:linear-gradient(135deg,var(--bourbon-dark),var(--bourbon));padding:20px 22px}
+.distillery-header h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#FFF8F0}
+.distillery-header p{font-size:12px;color:#F5C990;margin-top:4px}
+.distillery-body{padding:20px 22px}
+.distillery-body p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:12px}
+.distillery-facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.fact-chip{background:var(--cream-dark);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--bourbon)}
+.distillery-link{display:inline-flex;align-items:center;gap:8px;background:var(--bourbon);color:#FFF8F0;padding:10px 18px;border-radius:30px;font-size:13px;font-weight:700;text-decoration:none;transition:background 0.2s}
+.distillery-link:hover{background:var(--bourbon-dark);text-decoration:none}
+
+/* WEATHER */
+.weather-card{background:linear-gradient(135deg,#1A3A5C,#2A5080);border-radius:var(--radius);padding:28px 24px;color:#EEF4FF;position:relative;overflow:hidden}
+.weather-card::before{content:'☀';position:absolute;right:20px;top:20px;font-size:64px;opacity:0.15}
+.weather-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.weather-sub{font-size:12px;color:#9BB8D4;margin-bottom:20px}
+.weather-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+.w-stat{background:rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:12px}
+.w-stat-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9BB8D4;margin-bottom:4px}
+.w-stat-value{font-size:18px;font-weight:700;color:#EEF4FF}
+.w-stat-sub{font-size:12px;color:#9BB8D4;margin-top:2px}
+.weather-note{font-size:13px;color:#C8DCF0;line-height:1.6}
+.weather-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:#EEF4FF;text-decoration:none;transition:all 0.2s}
+.weather-link:hover{background:rgba(255,255,255,0.2);text-decoration:none}
+
+/* PLAYLIST */
+.playlist-section{background:var(--bourbon-dark);padding:40px 20px;margin-top:0}
+.playlist-inner{max-width:680px;margin:0 auto}
+.playlist-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#FFF8F0;margin-bottom:4px}
+.playlist-sub{font-size:13px;color:#D4B896;margin-bottom:20px}
+.spotify-wrap{border-radius:var(--radius);overflow:hidden}
+
+/* FOOTER */
+footer{text-align:center;padding:32px 20px;font-size:13px;color:var(--muted);background:var(--cream)}
+footer strong{color:var(--bourbon)}
+
+/* UTILS */
+.icon{display:inline-block}
+@media(min-width:540px){.activities-grid{grid-template-columns:1fr 1fr}.weather-stats{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero" id="top">
+  <div class="hero-eyebrow">Louisville, Kentucky · June 11–14, 2026</div>
+  <div class="hero-title">Kevin</div>
+  <div class="hero-subtitle">Aged to Perfection</div>
+  <div class="hero-meta">1555 Bardstown Rd · The Highlands · Party of 8</div>
+
+  <div class="countdown" id="countdown">
+    <div class="cd-unit"><span class="cd-num" id="cd-days">--</span><span class="cd-label">Days</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-hours">--</span><span class="cd-label">Hours</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-mins">--</span><span class="cd-label">Minutes</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-secs">--</span><span class="cd-label">Seconds</span></div>
+  </div>
+
+  <div class="map-links">
+    <a class="map-btn" href="https://maps.google.com/?q=1555+Bardstown+Rd,+Louisville,+KY+40205" target="_blank"><span>📍</span> Home Base</a>
+    <a class="map-btn" href="https://maps.google.com/?q=113+Great+Buffalo+Trce,+Frankfort,+KY+40601" target="_blank"><span>🥃</span> Buffalo Trace</a>
+    <a class="map-btn" href="https://maps.google.com/?q=4445+McCracken+Pike,+Millville,+KY+40347" target="_blank"><span>🏰</span> Castle & Key</a>
+  </div>
+</header>
+
+<!-- ═══ STICKY NAV ═══ -->
+<nav class="day-nav" id="day-nav">
+  <div class="day-nav-inner">
+    <a class="day-tab" href="#jun11">Wed Jun 11</a>
+    <a class="day-tab" href="#jun12">Thu Jun 12</a>
+    <a class="day-tab" href="#jun13">Fri Jun 13</a>
+    <a class="day-tab" href="#jun14">Sat Jun 14</a>
+    <a class="day-tab" href="#prep">🥃 Distillery Prep</a>
+    <a class="day-tab" href="#weather">☀ Weather</a>
+    <a class="day-tab" href="#playlist">🎵 Playlist</a>
+  </div>
+</nav>
+
+<!-- ═══ JUNE 11 ═══ -->
+<section class="section" id="jun11">
+  <div class="section-header">
+    <div class="day-label">Wednesday, June 11</div>
+    <h2 class="day-title">Arrival Day</h2>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div><div class="card-title">📍 Arrive at the Rental</div><div class="card-sub">1555 Bardstown Rd, Louisville, KY · The Highlands</div></div>
+      <span class="badge badge-time">Evening</span>
+    </div>
+    <div class="card-body">Get settled, drop bags, and get the crew together. Welcome to Louisville.</div>
+  </div>
+
+  <div class="card meal-confirmed">
+    <div class="card-header">
+      <div><div class="card-title">🍕 Dinner</div><div class="card-sub">~2 min walk · Bardstown Rd</div></div>
+      <span class="badge badge-confirmed">✓ Kevin's Pick</span>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:#2A6E2A;margin:6px 0 4px">Wheated</div>
+    <div class="card-body">Brooklyn-style pizza on Bardstown Rd — wood-fired pies, creative seasonal toppings, and solid cocktails. First taste of the Highlands, right out the front door.</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ JUNE 12 ═══ -->
+<section class="section" id="jun12">
+  <div class="section-header">
+    <div class="day-label">Thursday, June 12</div>
+    <h2 class="day-title">Distillery Day 🥃</h2>
+  </div>
+
+  <div class="card meal-cookin">
+    <div class="card-header">
+      <div><div class="card-title">🍳 Breakfast</div></div>
+      <span class="badge badge-cookin">🏠 Cook In</span>
+    </div>
+    <div class="kevin-note"><strong>Kevin's request:</strong> "Lower carb? Eggs and sausage?"</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🚗 Day on the Road</div></div>
+    <div style="margin-top:12px" class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">8:00 AM</div>
+        <div class="tl-label">Depart Louisville</div>
+        <div class="tl-detail">~1 hour drive to Frankfort</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">9:00 AM</div>
+        <div class="tl-label">Buffalo Trace Distillery — Shop Stop</div>
+        <div class="tl-detail">113 Great Buffalo Trce, Frankfort · Browse the gift shop, grab allocated bottles not available locally</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">~10:30 AM</div>
+        <div class="tl-label">Depart for Wallace Station</div>
+        <div class="tl-detail">~20 min from Buffalo Trace</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">~11:00 AM</div>
+        <div class="tl-label">Lunch — Wallace Station Deli</div>
+        <div class="tl-detail">3854 Old Frankfort Pike, Versailles · Housemade breads, creative sandwiches, Kentucky institution</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">2:45 PM</div>
+        <div class="tl-label">Arrive Castle & Key</div>
+        <div class="tl-detail">4445 McCracken Pike, Millville · Arrive 30 min early</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">3:15 PM</div>
+        <div class="tl-label">Castle & Key Distillery Tour</div>
+        <div class="tl-detail">Beautifully restored 19th-century estate — formal gardens, historic architecture, small-batch spirits</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">~5:30 PM</div>
+        <div class="tl-label">Return to Louisville</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card meal-cookin">
+    <div class="card-header">
+      <div><div class="card-title">🔥 Dinner</div></div>
+      <span class="badge badge-cookin">🏠 Cook In</span>
+    </div>
+    <div class="kevin-note"><strong>Kevin's request:</strong> "Something grilled!"</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ JUNE 13 ═══ -->
+<section class="section" id="jun13">
+  <div class="section-header">
+    <div class="day-label">Friday, June 13</div>
+    <h2 class="day-title">Kevin's Birthday <span class="bday-tag">🎂</span></h2>
+  </div>
+
+  <div class="card meal-confirmed">
+    <div class="card-header">
+      <div><div class="card-title">☀️ Breakfast</div><div class="card-sub">~0.7 mi walk · Baxter Ave</div></div>
+      <span class="badge badge-confirmed">✓ Kevin's Pick</span>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:#2A6E2A;margin:6px 0 4px">Gralehaus</div>
+    <div class="card-body">The highest-rated breakfast spot near the rental. Mushroom grits, biscuits with duck gravy, and excellent espresso. Opens 9 AM.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-title">🎶 Free Time — Explore Louisville</div></div>
+    <div class="card-body" style="margin-bottom:4px">Kevin's picks are starred — everything else is still on the table.</div>
+
+    <div class="group-label">📀 Record Shops</div>
+    <div class="activities-grid">
+      <div class="activity-card starred">
+        <div class="activity-name"><span class="star">★</span> Guestroom Records</div>
+        <div class="activity-tag">~2 min walk</div>
+        <div class="activity-note">Best record store in Kentucky, inside a historic fire station. Opens noon.</div>
+      </div>
+      <div class="activity-card other">
+        <div class="activity-name">Better Days Records</div>
+        <div class="activity-tag">~15 min walk</div>
+        <div class="activity-note">New & used vinyl, knowledgeable staff. Opens 11 AM.</div>
+      </div>
+      <div class="activity-card other">
+        <div class="activity-name">Matt Anthony's Record Shop</div>
+        <div class="activity-tag">~5 min drive</div>
+        <div class="activity-note">Staff plays any record for you before you buy.</div>
+      </div>
+    </div>
+
+    <div class="group-label">🎸 Instrument Shops</div>
+    <div class="activities-grid">
+      <div class="activity-card starred">
+        <div class="activity-name"><span class="star">★</span> Mom's Music</div>
+        <div class="activity-tag">~10 min drive</div>
+        <div class="activity-note">Louisville's top-rated instrument store (4.9 ★) — guitars, keys, amps. Opens 11 AM.</div>
+      </div>
+    </div>
+
+    <div class="group-label">🏙 Neighborhoods & Areas</div>
+    <div class="activities-grid">
+      <div class="activity-card starred">
+        <div class="activity-name"><span class="star">★</span> Bardstown Rd Stroll</div>
+        <div class="activity-tag">Right outside</div>
+        <div class="activity-note">Shops, records, coffee, and bars — the heart of the Highlands.</div>
+      </div>
+      <div class="activity-card starred">
+        <div class="activity-name"><span class="star">★</span> NuLu / East Market St</div>
+        <div class="activity-tag">~10 min drive</div>
+        <div class="activity-note">Louisville arts district — galleries, boutiques, murals, rooftop bars.</div>
+      </div>
+      <div class="activity-card other">
+        <div class="activity-name">Butchertown Market</div>
+        <div class="activity-tag">~10 min drive</div>
+        <div class="activity-note">Historic building with local vendors, artisan goods & bourbon gifts. Open Fri 11–5.</div>
+      </div>
+      <div class="activity-card other">
+        <div class="activity-name">Cherokee Park</div>
+        <div class="activity-tag">~15 min walk</div>
+        <div class="activity-note">Olmsted-designed park, 2.4-mile loop, wooded trails, creek swimming.</div>
+      </div>
+      <div class="activity-card other">
+        <div class="activity-name">Rooftop Bars (NuLu)</div>
+        <div class="activity-tag">~10–15 min drive</div>
+        <div class="activity-note">Copper & Kings, Bar Genevieve, or Rooftop Bourré Bonne.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card meal-cookin">
+    <div class="card-header">
+      <div><div class="card-title">🥪 Lunch</div></div>
+      <span class="badge badge-cookin">🏠 Cook In</span>
+    </div>
+    <div class="kevin-note"><strong>Kevin's request:</strong> "Just need good bread and all the toppings — lettuce, tomato, onion, pickles, anchovies…"</div>
+  </div>
+
+  <div class="card meal-confirmed">
+    <div class="card-header">
+      <div><div class="card-title">🥃 Birthday Dinner</div><div class="card-sub">~0.5 mi walk · Bardstown Rd</div></div>
+      <span class="badge badge-confirmed">✓ Kevin's Pick</span>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:#2A6E2A;margin:6px 0 4px">Jack Fry's</div>
+    <div class="card-body">A Louisville institution since 1933, featured in the New York Times. Bourbon short ribs, pan-seared trout, live jazz. Upscale and warm — the perfect birthday night. Reservations confirmed for 8.</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ JUNE 14 ═══ -->
+<section class="section" id="jun14">
+  <div class="section-header">
+    <div class="day-label">Saturday, June 14</div>
+    <h2 class="day-title">Departure Day</h2>
+  </div>
+
+  <div class="card meal-confirmed">
+    <div class="card-header">
+      <div><div class="card-title">🌅 Breakfast</div><div class="card-sub">~1 mi walk · Bardstown Rd</div></div>
+      <span class="badge badge-confirmed">✓ Kevin's Pick</span>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:#2A6E2A;margin:6px 0 4px">Highland Morning</div>
+    <div class="card-body">Retro diner with big breakfast energy — creative pancakes, benedicts, and daily specials. Opens 8 AM. A relaxed last morning on Bardstown Rd before hitting the road.</div>
+  </div>
+
+  <div class="card" style="border:2px solid var(--cream-deeper);text-align:center;padding:28px">
+    <div style="font-size:32px;margin-bottom:8px">🏠</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--dark);margin-bottom:6px">Safe Travels, Everyone</div>
+    <div style="font-size:14px;color:var(--muted)">Happy Birthday Kevin — Aged to Perfection.</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ DISTILLERY PREP ═══ -->
+<section class="section" id="prep">
+  <div class="section-header">
+    <div class="day-label">Know Before You Go</div>
+    <h2 class="day-title">Distillery Prep</h2>
+  </div>
+
+  <div class="distillery-card">
+    <div class="distillery-header">
+      <h3>Buffalo Trace Distillery</h3>
+      <p>Frankfort, KY · Thursday Shop Stop · 9:00 AM</p>
+    </div>
+    <div class="distillery-body">
+      <p>America's oldest continuously operating distillery, founded in 1773. No tour on this visit — we're swinging through the gift shop to stock up on bottles that are hard to find back home.</p>
+      <div class="distillery-facts">
+        <span class="fact-chip">Founded 1773</span>
+        <span class="fact-chip">Frankfort, KY</span>
+        <span class="fact-chip">Shop opens 9 AM</span>
+        <span class="fact-chip">Free parking</span>
+      </div>
+      <p><strong>What to look for:</strong> Blanton's Single Barrel, Eagle Rare 10yr, W.L. Weller, E.H. Taylor Jr., and Buffalo Trace Antique Collection bottles. Stock rotates daily — check availability before you go:</p>
+      <a class="distillery-link" href="https://www.buffalotracedistillery.com/visit-us/product-availability/#product_availability_section" target="_blank">
+        📋 Check Today's Product Availability →
+      </a>
+    </div>
+  </div>
+
+  <div class="distillery-card">
+    <div class="distillery-header">
+      <h3>Castle & Key Distillery</h3>
+      <p>Millville, KY · Thursday Tour · 3:15 PM</p>
+    </div>
+    <div class="distillery-body">
+      <p>Built in 1887 as the Old Taylor Distillery, Castle & Key is one of Kentucky's most stunning properties — a fully restored historic estate with formal gardens, a castle-like springhouse, and a limestone quarry pond.</p>
+      <div class="distillery-facts">
+        <span class="fact-chip">Built 1887</span>
+        <span class="fact-chip">Restored 2018</span>
+        <span class="fact-chip">Tour at 3:15 PM</span>
+        <span class="fact-chip">Arrive by 2:45</span>
+      </div>
+      <p><strong>What to expect:</strong> A guided tour through the historic grounds and production facility, followed by a tasting. Known for their Restoration Rye, Sacred Spring Botanical Gin, and small-batch bourbon. The property alone is worth the visit.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══ WEATHER ═══ -->
+<section class="section" id="weather">
+  <div class="section-header">
+    <div class="day-label">Louisville in June</div>
+    <h2 class="day-title">What to Expect</h2>
+  </div>
+  <div class="weather-card">
+    <div class="weather-title">Louisville, KY — Early June</div>
+    <div class="weather-sub">Typical conditions for June 11–14 based on historical averages</div>
+    <div class="weather-stats">
+      <div class="w-stat"><div class="w-stat-label">Average High</div><div class="w-stat-value">85°F</div><div class="w-stat-sub">29°C</div></div>
+      <div class="w-stat"><div class="w-stat-label">Average Low</div><div class="w-stat-value">63°F</div><div class="w-stat-sub">17°C</div></div>
+      <div class="w-stat"><div class="w-stat-label">Humidity</div><div class="w-stat-value">Warm</div><div class="w-stat-sub">Bring breathables</div></div>
+      <div class="w-stat"><div class="w-stat-label">Rain</div><div class="w-stat-value">Possible</div><div class="w-stat-sub">Afternoon showers</div></div>
+    </div>
+    <div class="weather-note">Expect warm, humid days — perfect for walking the Highlands and distillery grounds. Light layers for evenings. A light rain jacket isn't a bad idea given June afternoon showers.</div>
+    <a class="weather-link" href="https://weather.com/weather/tenday/l/Louisville+KY" target="_blank">🌤 Check the 10-Day Forecast →</a>
+  </div>
+</section>
+
+<!-- ═══ PLAYLIST ═══ -->
+<section class="playlist-section" id="playlist">
+  <div class="playlist-inner">
+    <div class="playlist-title">Road Trip Playlist</div>
+    <div class="playlist-sub">Queue it up for the drive down 🎶</div>
+    <div class="spotify-wrap">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1nPqnjRXL8XG6ypoKMrXdM?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Kevin — Aged to Perfection</strong> · Louisville, KY · June 11–14, 2026 🥃
+</footer>
+
+<script>
+// Countdown Timer
+function tick() {
+  const target = new Date('2026-06-11T17:00:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<div style="font-family:Cormorant Garamond,serif;font-size:28px;color:#F5C990;font-style:italic">The trip is here! 🎉</div>';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const fmt = n => String(n).padStart(2,'0');
+  document.getElementById('cd-days').textContent  = d;
+  document.getElementById('cd-hours').textContent = fmt(h);
+  document.getElementById('cd-mins').textContent  = fmt(m);
+  document.getElementById('cd-secs').textContent  = fmt(s);
+}
+tick();
+setInterval(tick, 1000);
+
+// Active nav tab on scroll
+const sections = ['jun11','jun12','jun13','jun14','prep','weather','playlist'];
+const tabs = document.querySelectorAll('.day-tab');
+function onScroll() {
+  let current = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 80) current = id;
+  });
+  tabs.forEach(t => {
+    const href = t.getAttribute('href').replace('#','');
+    t.classList.toggle('active', href === current);
+  });
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+</script>
+</body>
+</html>
